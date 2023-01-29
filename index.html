@@ -1,0 +1,79 @@
+<div class="forgot-password">
+  <h2 class="forgot-password-title">Basit Şifre Üretici</h2>
+    <div class="form-group">
+      <label for="email">Üretilen Şifre:</label>
+      <p id="passwordDisplay"></p>
+    </div>
+    <button id="generateBtn">Şifre Üret</button>
+  </form>
+</div>
+
+<style>
+  .forgot-password {
+  width: 400px;
+  margin: 50px auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+}
+
+.forgot-password-title {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input[type="email"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+</style>
+
+
+
+<script>
+  const generateBtn = document.getElementById("generateBtn");
+const passwordDisplay = document.getElementById("passwordDisplay");
+
+generateBtn.addEventListener("click", function () {
+  const password = generatePassword();
+  passwordDisplay.innerText = password;
+});
+
+function generatePassword() {
+  const characters = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let password = "";
+
+  for (let i = 0; i <12; i++) {
+    password += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+
+  return password;
+}
+
+</script>
+
+
